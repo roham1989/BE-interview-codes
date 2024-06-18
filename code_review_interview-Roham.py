@@ -1,4 +1,4 @@
-# 1 What is the name of the following class and what is the proper way to use it?
+# 1
 class FileManager:
     def __init__(self, filename, mode):
         self.filename = filename
