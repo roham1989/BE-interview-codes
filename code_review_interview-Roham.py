@@ -12,7 +12,7 @@ class FileManager:
         self.file.close()
 
 # 2
-def get_third_element(numbers):
+def GetThirdElement(numbers):
     return numbers[2]
 
 # 3
@@ -137,7 +137,15 @@ def update_products():
     return inactive_products.count()
 
 # 18
-class BlogMetadata(models.Model):
+class blog_metadata(models.Model):
     title_of_the_blog = models.CharField(max_length=200)
     date_posted = models.DateTimeField(auto_now_add=True)
     content_body = models.JSONField(default=dict())
+
+
+# Bonus Question
+class Test:
+    @lru_cache
+    def get_last_year_products_total_price(self):
+        last_year = datetime.now().year - datetime.timedelta(days=365)
+        return Product.objects.filter(created_at__lt=last_year).aggregate(total=Sum("product_price"))
