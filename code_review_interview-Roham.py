@@ -123,7 +123,7 @@ class CustomPagination(PageNumberPagination):
     page_size = 10
 
 class ProductListView(APIView):
-    pagination_class = PageNumberPagination
+    pagination_class = CustomPagination
 
     def get(self, request):
         products = Product.objects.all()
